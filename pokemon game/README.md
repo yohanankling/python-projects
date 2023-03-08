@@ -1,4 +1,7 @@
-![runnign game](https://user-images.githubusercontent.com/93263233/223745269-221580ff-dd3a-4291-8fd4-6b4a17f34dc0.mp4)
+
+
+https://user-images.githubusercontent.com/93263233/223752161-b35d25bf-a457-45e7-9059-fc2bc73d0b63.mp4
+
 
 https://docs.google.com/document/d/1LrXIX2pLvRIVHdSqVIimCCxL7UBMaogAcLKfr2dOjHk/edit
 

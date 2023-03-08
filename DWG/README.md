@@ -64,6 +64,3 @@ we implemented some tests on our classes in the project. You can use or see them
 
 # Gui:
 You can use graphic program that show you the graph and demonstrate it.
-
-# java vs python :
-on java we didnt implement in sucsess the functions that used dijakstra algorithm so we cant tell whos working better.

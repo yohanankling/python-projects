@@ -2,6 +2,16 @@
 
 This repository contains two Python scripts for a simple chat application using TCP and UDP protocols. The application includes a server and a client that can connect to the server to exchange messages and files.
 
+## Screenshots
+sending messages:</br>
+<img width="875" alt="text" src="https://github.com/yohanankling/python-projects/assets/93263233/6f0b6417-d9fe-443e-afc1-b39d267e7c57">
+</br>broadcast:</br>
+<img width="797" alt="broadcast" src="https://github.com/yohanankling/python-projects/assets/93263233/4ff3061d-8d59-4d72-92b6-c3d490fdb019">
+</br>online list:</br>
+<img width="532" alt="online" src="https://github.com/yohanankling/python-projects/assets/93263233/70fc3e53-3f5e-414d-adc4-ee6074b591d7">
+</br>download a file from server, using UDP:</br>
+<img width="698" alt="download" src="https://github.com/yohanankling/python-projects/assets/93263233/4c0dfbbf-fc07-4c22-916b-9fbe96e1efe9">
+
 ## Server
 
 ### Requirements
@@ -69,6 +79,24 @@ The client script (`client.py`) provides a simple graphical user interface (GUI)
 
 - The client script allows only one connection at a time. If you want to use multiple clients, run separate instances of the client script for each user.
 - The client script will automatically disconnect if you close the application window.
+
+## UDP section:
+
+The UDP (User Datagram Protocol) section in the server and client scripts enables file transfer between them. UDP is a connectionless and unreliable protocol, so we implement a simple algorithm to ensure reliable data transfer:
+
+1. **File Splitting**: The server splits the file into small packets and stores them in a list.
+
+2. **UDP Sockets**: Both server and client create two UDP sockets for sending and receiving data.
+
+3. **UDP Send and Receive Loops**: The server sends packets to the client, and the client acknowledges each received packet.
+
+4. **ACK Mechanism**: The server retransmits packets if the client does not acknowledge them within a timeout.
+
+5. **End of Transfer**: The server sends a special packet to indicate the end of the file transfer.
+
+6. **File Reconstruction**: The client reconstructs the file from received packets.
+
+Important: UDP lacks some features for robust data transfer, so for large or unreliable networks, other protocols like TCP may be more suitable.
 
 ## Contributing
 

@@ -1,90 +1,87 @@
-
+# Directed Weighted Graph - Pokemon Capture
 
 https://user-images.githubusercontent.com/93263233/223752161-b35d25bf-a457-45e7-9059-fc2bc73d0b63.mp4
 
 
 https://docs.google.com/document/d/1LrXIX2pLvRIVHdSqVIimCCxL7UBMaogAcLKfr2dOjHk/edit
 
-Directed Weighted Graph - pokemon capture
-In this project we wrote a code for getting graph from  server, agents and pokemons and calculate the most efficiant way for every agent to the pokemons as the goal - is to capture as most pokemons as possible.
+This project focuses on implementing a code to create and analyze a directed weighted graph based on data from a server. The graph represents a game scenario involving agents and Pokémon, with the goal of finding the most efficient way for each agent to capture as many Pokémon as possible.
 
+## Main Classes and Their Functions:
 
-# The main classes and their function:
-- DiGraph
+1. DiGraph
 
-  DiGraph represents a graph with some functions:
-  * getNode - gets "id" and returns dict of its node
-  * getEdge - gets "src, dest" and returns dict of its edge
-  * addPokemon - adding pokemon to the actual pokemons list that the server provided, deleting the older list with non actual pokemons
-  the class Pokemon claculate also the edge the pokemon on with the line formula - Y=XM + N
-  * addAgent - adding agent to the actual agents list that the server provided
-  * v_size - returns the length of nodes's dict
-  * e_size - returns the length of edges's dict
-  * removePokemon - removing captured pokemons
-  * get_all_v - return the nodes's dict
-  * all_in_edges_of_node - gets "id1" and returns dict of nodes which enter to this node  
-  * all_out_edges_of_node - gets "id1" and returns dict of nodes which go out from this node
-  * get_mc -  returns num of changes in graph
-  * add_edge -  gets "id1, id2, waight" and returns false if node of id1 or node of id2 does not         exsist and return true and add this edge if they exsist and there is not edge between them
-  * add_node - gets "node_id, pos" and returns false if node_id is exsist and return true and add         this node if node_id is not exsist
-  * remove_node - gets "node_id and returns false if node_id does not exsist and return true and         delete this node and its edges if it exsist 
-  * remove_edge - gets "node_id, node_id" and returns false if node_id1 or node_id2 or this edge does     not exsist and return true and delete this edge if they are exsist
-  
-on this way We will present the following two classes.
+   The DiGraph class represents a directed graph and provides the following functions:
 
-- GraphAlgo
+   - `getNode(id)`: Returns a dictionary representing the node with the given ID.
+   - `getEdge(src, dest)`: Returns a dictionary representing the edge between the source and destination nodes.
+   - `addPokemon(pokemon)`: Adds a Pokémon to the list of active Pokémon provided by the server. It also calculates the edge the Pokémon is on using a line formula (Y = MX + N).
+   - `addAgent(agent)`: Adds an agent to the list of active agents provided by the server.
+   - `v_size()`: Returns the number of nodes in the graph.
+   - `e_size()`: Returns the number of edges in the graph.
+   - `removePokemon(pokemon_id)`: Removes a captured Pokémon from the graph.
+   - `get_all_v()`: Returns a dictionary representing all nodes in the graph.
+   - `all_in_edges_of_node(id)`: Returns a dictionary representing nodes that have edges coming into the specified node.
+   - `all_out_edges_of_node(id)`: Returns a dictionary representing nodes that have edges going out from the specified node.
+   - `get_mc()`: Returns the number of changes made to the graph.
+   - `add_edge(id1, id2, weight)`: Adds an edge between two nodes with the given weight if they exist and if an edge between them does not already exist.
+   - `add_node(node_id, pos)`: Adds a new node with the given ID and position if the node does not already exist.
+   - `remove_node(node_id)`: Removes a node and its associated edges from the graph if it exists.
+   - `remove_edge(id1, id2)`: Removes an edge between two nodes if it exists.
 
-  GraphAlgo represents some algorithms  of the graph with some functions:
-  * get_graph 
-  * load_graph_from_json 
-  * shortest_path 
-  * dijkstra
-  * load_pokemons_from_json 
-  * load_agents_from_json 
-  * centerPoint 
-  * allocateAgent
+2. GraphAlgo
 
-- GUI
+   The GraphAlgo class provides various algorithms related to the graph and offers the following functions:
 
-  GUI represents graphic program ,that show you the graph and demonstrate it, with some functions:
-  * drawNodes 
-  * drawEdges 
-  * findMin 
-  * scale 
-  * scaleX 
-  * scaleY
-  * drawPokemon
-  * drawAgent
- 
-# Features of our algorithm :
-Reading graphs from json file.
-Checking what is the shortest path from source node to destination node.
-Giving the shortest path from src node to dest node (with nodes which in the 'road').
-Calculation the center of the graph (the most close node to the all other nodes).
-Showing the graph in gui window - and demonstrate the chasing for the pokemons
-In this code we used Dijkstra Algorithm to get the shortest path.
-the main propose is to loacate the closet pokemon to an agent and to send him there.
+   - `get_graph()`: Returns the graph object being used.
+   - `load_graph_from_json(file_name)`: Loads a graph from a JSON file.
+   - `shortest_path(src, dest)`: Finds the shortest path from a source node to a destination node, returning the path as a list of nodes.
+   - `dijkstra(src)`: Calculates the shortest path to all other nodes from a given source node.
+   - `load_pokemons_from_json(file_name)`: Loads Pokémon data from a JSON file.
+   - `load_agents_from_json(file_name)`: Loads agent data from a JSON file.
+   - `center_point()`: Finds the center node of the graph, which is the node closest to all other nodes.
+   - `allocate_agent(agent_id, pokemon_id)`: Allocates an agent to move toward a specified Pokémon.
 
-# Code's running:
-For run the code you can download the project. Then, you will find: some json files, representing the graphs, you need to run the jar file in the cmd with the wanted case that representing diffrent grpah or agnets and pokemons, and run the "main" file in the project.
-runing levels:
-- run the command(make sure you oppened the cmd in the same folder the jar there) - 
-"java -jar src/Ex4_Server_v0.0.jar 0" (0 = case 0, you can go from 0 to 15)
-- open the project and run "main.py"
-- enjoy
+3. GUI
 
-# Test:
-we implemented some tests on our classes in the project.
-all graph method checked with some casses to test them.
-also, we can see the actual decision the program take in a live in the gui and the agnets work in a good way.
+   The GUI class represents a graphical program that displays the graph and demonstrates the Pokémon chase. It includes the following functions:
 
+   - `drawNodes()`: Draws the nodes of the graph.
+   - `drawEdges()`: Draws the edges of the graph.
+   - `findMin()`: Finds the minimum coordinate values of the nodes to set the graph's drawing position.
+   - `scale(scale_factor)`: Scales the graph for drawing.
+   - `scaleX(scale_factor)`: Scales the graph horizontally for drawing.
+   - `scaleY(scale_factor)`: Scales the graph vertically for drawing.
+   - `drawPokemon(pokemon_id)`: Draws a Pokémon on the graph.
+   - `drawAgent(agent_id)`: Draws an agent on the graph.
 
-# Gui:
-You can use graphic program that show you the graph and demonstrate it, and see the agnets in their chase after pokemons,
-you can see in the left corner the game details- time,moves and score as an stop button to stop the game in any level you want
+## Features of Our Algorithm:
 
-# interface with the server :
-the client class have some function to help us get the details neccesary to the game to display the pokemon chase -
-getGraph, getAgnets, getPokemons, start(to start the gmae), stop, info (of the game), move (to reset agnets pos), nextEdge (set the agent his new destination node to go there - only for his neibher)
+- Read graphs from JSON files.
+- Find the shortest path from a source node to a destination node.
+- Display the shortest path, including the nodes on the path.
+- Calculate the center of the graph, the node closest to all other nodes.
+- Show the graph in a GUI window and demonstrate the agents' pursuit of Pokémon.
+- Use Dijkstra's Algorithm to find the shortest paths.
 
-# enjoy.
+## Running the Code:
+
+1. Download the project, which includes JSON files representing various graphs.
+2. Run the jar file in the command prompt (cmd) with a case number (0 to 15) to choose a specific graph and set of agents and Pokémon.
+   Command: `java -jar src/Ex4_Server_v0.0.jar 0`
+3. Open the project and run "main.py" to start the program.
+4. Enjoy the interactive display and watch the agents chase Pokémon.
+
+## Testing:
+
+We have implemented several tests for the project's classes to ensure their correct functionality. All graph methods have been tested with different cases to verify their accuracy. You can also observe the agents' decisions and performance in real-time using the GUI.
+
+## GUI:
+
+The GUI provides a graphical representation of the graph and visualizes the agents' pursuit of Pokémon. It displays game details such as time, moves, and score. Additionally, it includes a stop button to pause the game at any level.
+
+## Interface with the Server:
+
+The client class facilitates communication with the server and provides essential functions to obtain the necessary data for the game's display. These functions include retrieving the graph, agents, Pokémon, starting and stopping the game, obtaining game information, moving agents, and setting agents' new destination nodes.
+
+Enjoy playing the Pokémon Capture game and exploring the graph algorithms!
